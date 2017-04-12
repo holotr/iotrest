@@ -93,7 +93,7 @@ var apiAxios = axios.create({
     baseURL: '/api/',
     timeout: 10000,
     headers: {
-        'Accept': 'application/x.someline.v1+json',
+        'Accept': 'application/x.iot.v1+json',
     }
 });
 Vue.prototype.$api = window.$api = apiAxios;

@@ -69,7 +69,7 @@ mix.combine([
 
 // BrowserSync
 mix.browserSync({
-    proxy: 'someline-starter.app',
+    proxy: 'iot.app',
     port: 3000,
     open: true
 })

@@ -19,16 +19,16 @@ class UsersTableSeeder extends Seeder
 
         User::create([
 //            'slid' => '1',
-            'name' => "Libern Lin",
-            'email' => 'libern@someline.com',
-            'password' => bcrypt('Abc12345'),
+            'name' => "Tau'ri",
+            'email' => 'tauri823@gmail.com',
+            'password' => bcrypt('admin'),
             'remember_token' => str_random(10),
             'gender' => 'M',
-            'birthday' => '1994-07-08',
+            'birthday' => '1995-08-23',
             'country' => 'CN',
             'timezone' => 'Asia/Shanghai',
             'locale' => 'en',
-            'username' => 'libern',
+            'username' => 'tauri',
             'phone_number' => '+1234567890',
             'status' => 1,
         ]);
