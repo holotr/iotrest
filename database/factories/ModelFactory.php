@@ -30,3 +30,13 @@ $factory->define(\Someline\Models\Foundation\User::class, function (Faker\Genera
         'status' => 1,
     ];
 });
+
+$factory->define(\Someline\Models\Foundation\Sensor::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => $faker->numberBetween(1,50),
+        'uuid' => $faker->uuid,
+        'name' => $faker->word,
+        'type' => $faker->randomElement(['心率传感器','体温传感器','血氧传感器','三轴传感器','脉搏传感器']),
+        'extra' => $faker->realText(15),
+    ];
+});

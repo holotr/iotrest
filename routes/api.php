@@ -35,6 +35,17 @@ $api->version('v1', [
                 $api->delete('/{id}', 'UsersController@destroy');
             });
 
+            // /sensors
+            $api->group(['prefix' => 'sensors'], function (Router $api) {
+                $api->get('/', 'SensorsController@index');
+                $api->post('/', 'SensorsController@store');//增加
+                //$api->get('/me', 'SensorsController@me');
+                $api->get('/{id}', 'SensorsController@show');//拉数据
+                $api->put('/{id}', 'SensorsController@update');//修改
+                $api->delete('/{id}', 'SensorsController@destroy');//删除
+            });
+
+
         });
 
     });

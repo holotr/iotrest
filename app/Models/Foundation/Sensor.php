@@ -5,6 +5,7 @@ namespace Someline\Models\Foundation;
 use Someline\Models\BaseModel;
 use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Sensor extends BaseModel implements Transformable
 {
@@ -18,11 +19,11 @@ class Sensor extends BaseModel implements Transformable
     ];
 
     // Fields to be converted to Carbon object automatically
-    protected $dates = [];
+    protected $hidden = [];
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id', 'user_id');
     }
 
     public function record()

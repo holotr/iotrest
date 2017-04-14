@@ -13,7 +13,8 @@ class SensorUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        //::TODO
+        return true;
     }
 
     /**

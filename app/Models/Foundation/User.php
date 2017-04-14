@@ -11,6 +11,7 @@ class User extends BaseUser
 {
     use SomelineHasImageablesTrait;
 
+    protected $primaryKey = 'user_id';
     /**
      * The attributes that are mass assignable.
      *
@@ -40,4 +41,9 @@ class User extends BaseUser
 
     }
 
+    public function sensors()
+    {
+        return $this->hasMany(Sensor::class, 'user_id', 'user_id');
+    }
+    
 }

@@ -6,7 +6,7 @@ return array(
      * Rest client environment for selecting services
      * Available: 'production', 'dev'
      */
-    'environment' => env('REST_CLIENT_ENV', 'production'),
+    'environment' => env('REST_CLIENT_ENV', 'dev'),
 
     /**
      * Debug mode for showing logs
@@ -39,7 +39,7 @@ return array(
 
         'oauth2_credentials' => [
             'client_id' => '1',
-            'client_secret' => 'EpAeMzdkzzstElFqROrn61NVfpQiZEbuE8bWA48t',
+            'client_secret' => 'QdvazQW9Ki7Tk3KUaIV3msXyKgdPwtj5qalUgsDo',
         ],
 
         'oauth2_access_token_url' => 'oauth/token',
@@ -71,7 +71,7 @@ return array(
                 'base_uri' => env('API_TEST_LOCAL_URL'),
 
                 'headers' => [
-                    'Accept' => 'application/x.someline.v1+json',
+                    'Accept' => 'application/x.iot.v1+json',
                 ],
 
                 'oauth2_credentials' => [
@@ -83,10 +83,10 @@ return array(
 
             'someline-starter' => [
 
-                'base_uri' => 'http://dev.someline-starter.app/',
+                'base_uri' => 'http://iot.app/',
 
                 'headers' => [
-                    'Accept' => 'application/x.someline.v1+json',
+                    'Accept' => 'application/x.iot.v1+json',
                 ],
 
             ],
@@ -98,10 +98,10 @@ return array(
 
             'someline-starter' => [
 
-                'base_uri' => 'http://someline-starter.app/',
+                'base_uri' => 'http://iot.app/',
 
                 'headers' => [
-                    'Accept' => 'application/x.someline.v1+json',
+                    'Accept' => 'application/x.iot.v1+json',
                 ],
 
             ],

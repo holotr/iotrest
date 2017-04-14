@@ -3,6 +3,8 @@
 namespace Someline\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use \Prettus\Validator\Contracts\ValidatorInterface;
+use \Prettus\Validator\LaravelValidator;
 
 class AppServiceProvider extends ServiceProvider
 {

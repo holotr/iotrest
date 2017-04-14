@@ -3,7 +3,7 @@
 namespace Someline\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Someline\Repositories\Eloquent\USensorRepositoryEloquent;
+use Someline\Repositories\Eloquent\SensorRepositoryEloquent;
 use Someline\Repositories\Eloquent\UserRepositoryEloquent;
 use Someline\Repositories\Interfaces\SensorRepository;
 use Someline\Repositories\Interfaces\UserRepository;
