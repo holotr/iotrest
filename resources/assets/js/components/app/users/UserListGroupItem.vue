@@ -2,14 +2,16 @@
 </style>
 
 <template>
-    <a href="#" class="list-group-item clearfix">
+    <a :href="link" class="list-group-item clearfix">
         <span class="pull-left thumb-sm avatar m-r">
-            <img src="https://www.someline.com/en/user/profilephoto/origin/f4ccc4de78c03fe2c321490cf6f8157f825e4c4f.jpg"
-                 alt="...">
+            <v-gravatar :email="item.email" />
         </span>
         <span class="clear">
-            <span>{{ item.name }}</span>
-            <!--<pre>{{ item }}</pre>-->
+            <span class="block">{{ item.name }}</span>
+            <span class="block">{{ $t('user.joinin') }} : {{ item.created_at}}</span>
+            <div class="line pull-in"></div>
+            <span class="block text-xs">{{ $t('api.respond') }} : </span>
+            <pre class="block text-xs">{{ item }}</pre>
         </span>
     </a>
 </template>
@@ -27,7 +29,7 @@
                 return this.item.user_id;
             },
             link(){
-                return "/users/" + this.userId + "#/user/" + this.userId + "/profile";
+                return "/users/" + this.userId;
             },
         },
         watch: {},

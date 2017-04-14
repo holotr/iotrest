@@ -5,15 +5,15 @@
 
     <div class="wrapper-md">
 
-        <h1>{{ $t('user.users') }}</h1>
+        <h1>{{ $t('sensor.sensors') }}</h1>
         <hr>
 
         <div class="row">
 
             <div class="list-group list-group-lg list-group-sp">
                 <template v-for="item of items">
-                    <div class="col-md-6 m-b-sm">
-                        <sl-user-list-item :item="item"></sl-user-list-item>
+                    <div class="col-md-6 connected">
+                        <sl-sensor-list-item :item="item"></sl-sensor-list-item>
                     </div>
                 </template>
             </div>
@@ -35,7 +35,7 @@
         },
         computed: {},
         components: {
-            'sl-user-list-item': require('./UserListGroupItem.vue'),
+            'sl-sensor-list-item': require('./SensorListGroupItem.vue'),
         },
         mounted(){
             console.log('Component Ready.');
@@ -47,7 +47,7 @@
         methods: {
             fetchData(){
 
-                this.$api.get('/users', {
+                this.$api.get('/sensors', {
                     params: {
 //                        include: ''
                     }

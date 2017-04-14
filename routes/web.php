@@ -29,9 +29,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('desktop-example', 'ExampleController@getDesktopExample');
 
     Route::get('users', 'UserController@getUserList');
-
+    Route::get('sensors', 'SensorController@getSensorList');
 });
-
+/*
 // Mobile Routes
 Route::group(['prefix' => 'm', 'namespace' => 'Mobile'], function () {
 
@@ -49,7 +49,7 @@ Route::group(['prefix' => 'm', 'namespace' => 'Mobile'], function () {
 
     });
 
-});
+});*/
 
 // Console Routes
 Route::group(['prefix' => 'console', 'middleware' => 'auth', 'namespace' => 'Console'], function () {

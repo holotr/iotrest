@@ -18,6 +18,17 @@ return [
     'user' => [
         'users' => 'Users',
         'login' => 'Sign In',
+        'joinin' => 'Join In',
+    ],
+    'sensor' => [
+        'sensors' => 'Sensors',
+        'type' => 'Type',
+        'description' => 'Depict',
+        'moreinfo' => 'Learn More',
+    ],
+    'api' => [
+        'respond' => 'API Respond',
+        'login' => 'Log In',
     ],
 
 ];
