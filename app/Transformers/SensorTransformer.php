@@ -2,7 +2,7 @@
 
 namespace Someline\Transformers;
 
-use Someline\Models\Sensor;
+use Someline\Models\Foundation\Sensor;
 
 /**
  * Class SensorTransformer
@@ -23,6 +23,8 @@ class SensorTransformer extends BaseTransformer
             'id' => (int) $model->id,
 
             /* place your other model properties here */
+            'user_id' => $model->user_id,
+            'name' => $model->name,
 
             'created_at' => (string) $model->created_at,
             'updated_at' => (string) $model->updated_at

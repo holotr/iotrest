@@ -18,7 +18,10 @@ class CreateSensorsTable extends Migration
             $table->unsignedInteger('user_id')->index();
 
             // Adding more table related fields here...
-            
+						$table->uuid('uuid');
+            $table->string('name', 50)->index();
+            $table->string('type', 255);
+            $table->text('extra')->nullable();
 
             $table->unsignedInteger('created_by')->nullable();
             $table->timestamp('created_at')->nullable();
@@ -26,6 +29,7 @@ class CreateSensorsTable extends Migration
             $table->unsignedInteger('updated_by')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->ipAddress('updated_ip')->nullable();
+						$table->softDeletes();
 		});
 	}
 

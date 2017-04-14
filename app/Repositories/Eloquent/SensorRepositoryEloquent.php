@@ -4,7 +4,7 @@ namespace Someline\Repositories\Eloquent;
 
 use Someline\Repositories\Criteria\RequestCriteria;
 use Someline\Repositories\Interfaces\SensorRepository;
-use Someline\Models\Sensor;
+use Someline\Models\Foundation\Sensor;
 use Someline\Validators\SensorValidator;
 use Someline\Presenters\SensorPresenter;
 

@@ -9,7 +9,10 @@ class SensorValidator extends LaravelValidator
 {
 
     protected $rules = [
-        ValidatorInterface::RULE_CREATE => [],
+        ValidatorInterface::RULE_CREATE => [
+          'name' => 'required',
+          'type' => 'required',
+        ],
         ValidatorInterface::RULE_UPDATE => [],
    ];
 }
