@@ -14,6 +14,7 @@ return [
     */
 
     'Welcome'   => '欢迎',
+    'save'   => '保存',
 
     'user' => [
         'users' => '用户',
@@ -25,6 +26,16 @@ return [
         'type' => '类型',
         'description' => '描述',
         'moreinfo' => '点击查看更多详情',
+        'new' => '新建传感器',
+        'name' => '名称',
+        'entername' => '请输入传感器名称',
+        'types' => [
+          'pulse' => '脉搏传感器',
+          'heartrate' => '心率传感器',
+          'bodytemp' => '体温传感器',
+          'bloodo2' => '血氧传感器',
+          'dip' => '倾角传感器',
+        ],
     ],
     'api' => [
         'respond' => 'API 应答',

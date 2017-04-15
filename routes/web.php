@@ -30,6 +30,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('users', 'UserController@getUserList');
     Route::get('sensors', 'SensorController@getSensorList');
+    Route::get('sensors/new', 'SensorController@newSensor');
+    Route::get('sensors/{id}', 'SensorController@show');
 });
 /*
 // Mobile Routes

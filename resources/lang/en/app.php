@@ -14,6 +14,7 @@ return [
     */
 
     'Welcome'   => 'Welcome',
+    'save'   => 'Save',
 
     'user' => [
         'users' => 'Users',
@@ -25,6 +26,16 @@ return [
         'type' => 'Type',
         'description' => 'Depict',
         'moreinfo' => 'Learn More',
+        'new' => 'New Sensor',
+        'name' => 'Name',
+        'entername' => 'Enter Sensor Name',
+        'types' => [
+          'pulse' => 'Pulse Sensor',
+          'heartrate' => 'Heart Rate Sensor',
+          'bodytemp' => 'Body Temperature Sensor',
+          'bloodo2' => 'Blood Oxygen Sensor',
+          'dip' => 'Tilt Sensor',
+        ],
     ],
     'api' => [
         'respond' => 'API Respond',

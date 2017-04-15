@@ -11,6 +11,11 @@ class SensorController extends BaseController
         return view('app.sensors.sensor_list');
     }
 
+    public function newSensor()
+    {
+        return view('app.sensors.new_sensor');
+    }
+
     public function getSensorDetail($id)
     {
         return view('app.sensors.sensor_detail', [
