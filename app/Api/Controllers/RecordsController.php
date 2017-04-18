@@ -10,6 +10,8 @@ use Someline\Http\Requests\RecordCreateRequest;
 use Someline\Http\Requests\RecordUpdateRequest;
 use Someline\Repositories\Interfaces\RecordRepository;
 use Someline\Validators\RecordValidator;
+use Illuminate\Support\Facades\Gate;
+use Someline\Models\Foundation\Sensor;
 
 class RecordsController extends BaseController
 {
@@ -24,10 +26,11 @@ class RecordsController extends BaseController
      */
     protected $validator;
 
-    public function __construct(RecordRepository $repository, RecordValidator $validator)
+    public function __construct(RecordRepository $repository, RecordValidator $validator,Sensor $sensor)
     {
         $this->repository = $repository;
         $this->validator = $validator;
+        $this->sensor = $sensor;
     }
 
 
@@ -48,15 +51,21 @@ class RecordsController extends BaseController
      *
      * @return \Illuminate\Http\Response
      */
-    public function store($id,RecordCreateRequest $request)
+    public function store($sensorId,RecordCreateRequest $request)
     {
-
+      $sensor = $this->sensor->find($sensorId);
+      if (! $sensor) {
+          return $this->response->errorNotFound();
+      }
+      if (Gate::denies('store', $sensor)) {
+        abort(401);
+      }
         $data = $request->all();
 
         $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
 
         //$data['record'] = $data;
-        $data['sensor_id'] = $id;
+        $data['sensor_id'] = $sensorId;
 
         $record = $this->repository->create($data);
 
@@ -82,7 +91,8 @@ class RecordsController extends BaseController
      */
     public function show($id)
     {
-        return $this->repository->findWhere(['sensor_id' => $id]);
+        $user = auth_user()->getUserId();
+        return $this->repository->findWhere(['sensor_id' => $id,'user_id'=> $user]);
     }
 
     /**
