@@ -6,25 +6,25 @@ use Dingo\Api\Exception\DeleteResourceFailedException;
 use Dingo\Api\Exception\StoreResourceFailedException;
 use Dingo\Api\Exception\UpdateResourceFailedException;
 use Prettus\Validator\Contracts\ValidatorInterface;
-use Someline\Http\Requests\SensorCreateRequest;
-use Someline\Http\Requests\SensorUpdateRequest;
-use Someline\Repositories\Interfaces\SensorRepository;
-use Someline\Validators\SensorValidator;
+use Someline\Http\Requests\RecordCreateRequest;
+use Someline\Http\Requests\RecordUpdateRequest;
+use Someline\Repositories\Interfaces\RecordRepository;
+use Someline\Validators\RecordValidator;
 
-class SensorsController extends BaseController
+class RecordsController extends BaseController
 {
 
     /**
-     * @var SensorRepository
+     * @var RecordRepository
      */
     protected $repository;
 
     /**
-     * @var SensorValidator
+     * @var RecordValidator
      */
     protected $validator;
 
-    public function __construct(SensorRepository $repository, SensorValidator $validator)
+    public function __construct(RecordRepository $repository, RecordValidator $validator)
     {
         $this->repository = $repository;
         $this->validator = $validator;
@@ -32,31 +32,33 @@ class SensorsController extends BaseController
 
 
     /**
-     * Display a listing of the user resource.
+     * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $user = auth_user()->getUserId();
-        return $this->repository->findWhere(['user_id' => $user]);
+        return $this->repository->all();
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  SensorCreateRequest $request
+     * @param  RecordCreateRequest $request
      *
      * @return \Illuminate\Http\Response
      */
-    public function store(SensorCreateRequest $request)
+    public function store($id,RecordCreateRequest $request)
     {
 
         $data = $request->all();
 
         $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
 
-        $sensor = $this->repository->create($data);
+        //$data['record'] = $data;
+        $data['sensor_id'] = $id;
+
+        $record = $this->repository->create($data);
 
         // throw exception if store failed
 //        throw new StoreResourceFailedException('Failed to store.');
@@ -65,7 +67,8 @@ class SensorsController extends BaseController
 //        return $this->response->created(null);
 
         // B. return data
-        return $sensor;
+        return $record;
+        //return $data;
 
     }
 
@@ -79,27 +82,25 @@ class SensorsController extends BaseController
      */
     public function show($id)
     {
-
-      $user = auth_user()->getUserId();
-      return $this->repository->findWhere(['user_id' => $user,'sensor_id' => $id]);
+        return $this->repository->findWhere(['sensor_id' => $id]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  SensorUpdateRequest $request
+     * @param  RecordUpdateRequest $request
      * @param  string            $id
      *
      * @return Response
      */
-    public function update(SensorUpdateRequest $request, $id)
+    public function update(RecordUpdateRequest $request, $id)
     {
 
         $data = $request->all();
 
         $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-        $sensor = $this->repository->update($data, $id);
+        $record = $this->repository->update($data, $id);
 
         // throw exception if update failed
 //        throw new UpdateResourceFailedException('Failed to update.');

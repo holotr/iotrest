@@ -43,6 +43,9 @@ $api->version('v1', [
                 $api->get('/{id}', 'SensorsController@show');//拉数据
                 $api->put('/{id}', 'SensorsController@update');//修改
                 $api->delete('/{id}', 'SensorsController@destroy');//删除
+                $api->get('/{id}/record', 'RecordsController@show');
+                $api->post('/{id}/record', 'RecordsController@store');
+
             });
 
 

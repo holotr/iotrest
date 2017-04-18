@@ -15,7 +15,7 @@ class Sensor extends BaseModel implements Transformable
     protected $primaryKey = 'sensor_id';
 
     protected $fillable = [
-      'uuid', 'name', 'type', 'extra',
+      'uuid', 'name', 'type', 'extra','user_id',
     ];
 
     // Fields to be converted to Carbon object automatically
@@ -28,6 +28,6 @@ class Sensor extends BaseModel implements Transformable
 
     public function record()
     {
-        return $this->hasMany(SensorData::class);
+        return $this->hasMany(Record::class, 'sensor_id', 'sensor_id');
     }
 }

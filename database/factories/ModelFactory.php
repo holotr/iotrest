@@ -40,3 +40,11 @@ $factory->define(\Someline\Models\Foundation\Sensor::class, function (Faker\Gene
         'extra' => $faker->realText(15),
     ];
 });
+
+$factory->define(\Someline\Models\Foundation\Record::class, function (Faker\Generator $faker) {
+    return [
+        'sensor_id' => $faker->numberBetween(1,100),
+        //'user_id' => 0,
+        'record' => $faker->numberBetween(200,900),
+    ];
+});
