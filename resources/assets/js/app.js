@@ -17,6 +17,7 @@ Vue.component('example', require('./components/Example.vue'));
 Vue.component('sl-user-list', require('./components/app/users/UserList.vue'));
 Vue.component('sl-sensor-list', require('./components/app/sensors/SensorList.vue'));
 Vue.component('sl-sensor-new', require('./components/app/sensors/SensorNew.vue'));
+Vue.component('sl-sensor-detail', require('./components/app/sensors/SensorDetail.vue'));
 
 // Vuex
 import Vuex from 'vuex'

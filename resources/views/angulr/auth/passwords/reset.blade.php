@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="wrapper text-center">
-        <strong>Reset Password</strong>
+        <strong>重置密码</strong>
     </div>
 
     @if (session('status'))
@@ -27,17 +27,17 @@
                        value="{{ old('email') }}" required>
             </div>
             <div class="list-group-item">
-                <input type="password" placeholder="Password" class="form-control no-border" name="password"
+                <input type="password" placeholder="密码" class="form-control no-border" name="password"
                        required>
             </div>
             <div class="list-group-item">
-                <input type="password" placeholder="Confirm Password" class="form-control no-border"
+                <input type="password" placeholder="重复密码" class="form-control no-border"
                        name="password_confirmation"
                        required>
             </div>
         </div>
         <button type="submit" class="btn btn-lg btn-primary btn-block">
-            Reset Password
+            确认重置
         </button>
 
         <div class="wrapper"></div>

@@ -8,10 +8,8 @@
     </button>
     <!-- brand -->
     <a href="{{url('')}}" class="navbar-brand text-lt">
-        <img src="https://www.someline.com/images/logo/someline-icon-64.png" alt=".">
-        <span class="hidden-folded m-l-xs">
-            <img src="https://www.someline.com/images/logo/someline-logo@2x.png" style="max-height: 18px" alt=".">
-        </span>
+        IoT
+        <span class="hidden-folded m-l-xs">Restful Dash</span>
     </a>
     <!-- / brand -->
 </div>

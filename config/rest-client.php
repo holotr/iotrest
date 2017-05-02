@@ -39,7 +39,7 @@ return array(
 
         'oauth2_credentials' => [
             'client_id' => '1',
-            'client_secret' => 'QdvazQW9Ki7Tk3KUaIV3msXyKgdPwtj5qalUgsDo',
+            'client_secret' => 'xoATiWxXxzgVehritfly73sZkg8iLn5FtzoE2VAr',
         ],
 
         'oauth2_access_token_url' => 'oauth/token',

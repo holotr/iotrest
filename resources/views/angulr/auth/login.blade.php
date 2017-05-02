@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="wrapper text-center">
-        <strong>Sign in to get in touch</strong>
+        <h3>立即登录</h3>
     </div>
     <form name="form" class="form-horizontal form-validation" role="form" method="POST" action="{{ url('/login') }}">
         {!! csrf_field() !!}
@@ -18,20 +18,20 @@
             </div>
             <div class="list-group-item">
                 <input type="hidden" name="grant_type" value="password"/>
-                <input type="password" placeholder="Password" class="form-control no-border" name="password"
+                <input type="password" placeholder="密码" class="form-control no-border" name="password"
                        required>
             </div>
         </div>
         <button type="submit" class="btn btn-lg btn-primary btn-block">
-            Log in
+            登录
         </button>
-        <div class="text-center m-t m-b"><a href="{{ url('/password/reset') }}">Forgot password?</a></div>
+        <div class="text-center m-t m-b"><a href="{{ url('/password/reset') }}">忘记密码?</a></div>
 
         <div class="wrapper"></div>
         <div class="line line-dashed"></div>
         <p class="text-center">
-            <small>Do not have an account?</small>
+            <small>还没有账号?</small>
         </p>
-        <a href="{{ url('/register') }}" class="btn btn-lg btn-default btn-block">Create an account</a>
+        <a href="{{ url('/register') }}" class="btn btn-lg btn-default btn-block">马上注册</a>
     </form>
 @endsection

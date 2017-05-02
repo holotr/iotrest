@@ -18,6 +18,6 @@ class SensorsTableSeeder extends Seeder
         Schema::enableForeignKeyConstraints();
 
 
-        factory(Sensor::class, 100)->create();
+        factory(Sensor::class, 100)->create([]);
     }
 }

@@ -21,7 +21,7 @@ class RecordTransformer extends BaseTransformer
     {
         return [
             'record_id' => (int) $model->record_id,
-            'sensor_id' => (int) $model->sensor_id,
+            //'sensor_id' => (int) $model->sensor_id,
 
             /* place your other model properties here */
             'record' => (string) $model->record,

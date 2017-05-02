@@ -11,6 +11,8 @@ use Someline\Models\Foundation\Sensor;
 class SensorTransformer extends BaseTransformer
 {
 
+    protected $availableIncludes = ['user', 'record'];
+
     /**
      * Transform the Sensor entity
      * @param Sensor $model
@@ -34,12 +36,13 @@ class SensorTransformer extends BaseTransformer
         ];
     }
 
-    public function includeRecord(Record $model)
+    public function includeRecord(Sensor $sensor)
     {
-        $limit = 10;
+        $limit = 20;
         $record = $sensor->record()->limit($limit)->get();
         $total = $sensor->record()->count();
-        $record = $model->record;
-        return $this->collection($record, new SensorDataTransformer())->setMeta(['total' => $total]);
+        $user = auth_user()->getUserId();
+        //$record = $model->record;
+        return $this->collection($record, new RecordTransformer())->setMeta(['total' => $total,'user_id'=> $user],['user_id'=> $user]);
     }
 }

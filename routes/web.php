@@ -24,34 +24,13 @@ Route::group(['middleware' => 'auth'], function () {
 //        return redirect('users');
 //    });
 
-    Route::get('/', 'ExampleController@getIndexExample');
-    Route::get('blank-example', 'ExampleController@getBlankExample');
-    Route::get('desktop-example', 'ExampleController@getDesktopExample');
+    Route::get('/', 'HomeController@index');
 
     Route::get('users', 'UserController@getUserList');
     Route::get('sensors', 'SensorController@getSensorList');
     Route::get('sensors/new', 'SensorController@newSensor');
     Route::get('sensors/{id}', 'SensorController@show');
 });
-/*
-// Mobile Routes
-Route::group(['prefix' => 'm', 'namespace' => 'Mobile'], function () {
-
-    // Mobile App
-    Route::get('/', 'MobileController@getIndex');
-
-    Route::get('/app', 'MobileController@getApp');
-
-    // Protected Routes
-    Route::group(['middleware' => 'auth'], function () {
-
-        Route::get('users', 'UserController@getUserList');
-
-        Route::get('users/{id}', 'UserController@getUserDetail');
-
-    });
-
-});*/
 
 // Console Routes
 Route::group(['prefix' => 'console', 'middleware' => 'auth', 'namespace' => 'Console'], function () {
@@ -60,10 +39,10 @@ Route::group(['prefix' => 'console', 'middleware' => 'auth', 'namespace' => 'Con
     Route::get('oauth', 'ConsoleController@getOauth');
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
-    Route::group(['prefix' => 'users'], function () {
+  /*  Route::group(['prefix' => 'users'], function () {
         Route::get('/', 'UserController@getUserList');
     });
-
+  */
 });
 
 // Image Routes

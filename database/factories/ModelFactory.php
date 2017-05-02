@@ -33,7 +33,7 @@ $factory->define(\Someline\Models\Foundation\User::class, function (Faker\Genera
 
 $factory->define(\Someline\Models\Foundation\Sensor::class, function (Faker\Generator $faker) {
     return [
-        'user_id' => $faker->numberBetween(1,50),
+        'user_id' => $faker->numberBetween(1,25),
         'uuid' => $faker->uuid,
         'name' => $faker->word,
         'type' => $faker->randomElement(['心率传感器','体温传感器','血氧传感器','三轴传感器','脉搏传感器']),
@@ -42,9 +42,12 @@ $factory->define(\Someline\Models\Foundation\Sensor::class, function (Faker\Gene
 });
 
 $factory->define(\Someline\Models\Foundation\Record::class, function (Faker\Generator $faker) {
+
     return [
         'sensor_id' => $faker->numberBetween(1,100),
-        //'user_id' => 0,
+        'user_id' => function (array $record) {
+            return \Someline\Models\Foundation\Sensor::find($record['sensor_id'])->user_id;
+        },
         'record' => $faker->numberBetween(200,900),
     ];
 });

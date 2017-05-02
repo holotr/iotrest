@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Someline Starter',
+    'name' => env('APP_NAME', 'Someline Starter'),
 
     /*
     |--------------------------------------------------------------------------
@@ -181,6 +181,7 @@ return [
         Monarobase\CountryList\CountryListServiceProvider::class,
         Torann\GeoIP\GeoIPServiceProvider::class,
         Someline\Image\SomelineImageServiceProvider::class,
+        Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -247,7 +248,8 @@ return [
         'LaravelLocalization'   => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
         'Countries' => Monarobase\CountryList\CountryListFacade::class,
         'GeoIP' => Torann\GeoIP\GeoIPFacade::class,
-
+        'Gravatar' => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
+        
     ],
 
 ];

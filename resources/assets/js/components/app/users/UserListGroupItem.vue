@@ -8,9 +8,9 @@
         </span>
         <span class="clear">
             <span class="block">{{ item.name }}</span>
-            <span class="block">{{ $t('user.joinin') }} : {{ item.created_at}}</span>
+            <span class="block">加入于 : {{ item.created_at}}</span>
             <div class="line pull-in"></div>
-            <span class="block text-xs">{{ $t('api.respond') }} : </span>
+            <span class="block text-xs">API 应答 : </span>
             <pre class="block text-xs">{{ item }}</pre>
         </span>
     </a>

@@ -5,15 +5,15 @@
 
     <div class="wrapper-md">
 
-        <h1>用户</h1>
+        <h1>当前传感器数据 #{{this.sensorid}}</h1>
         <hr>
 
         <div class="row">
 
             <div class="list-group list-group-lg list-group-sp">
                 <template v-for="item of items">
-                    <div class="col-md-6 m-b-sm">
-                        <sl-user-list-item :item="item"></sl-user-list-item>
+                    <div class="col-md-6 connected">
+                        <sl-sensor-detail-item :item="item"></sl-sensor-detail-item>
                     </div>
                 </template>
             </div>
@@ -26,7 +26,7 @@
 
 <script>
     export default{
-        props: [],
+        props: ['sensorid'],
         data(){
             return {
 //                msg: 'hello vue',
@@ -35,7 +35,7 @@
         },
         computed: {},
         components: {
-            'sl-user-list-item': require('./UserListGroupItem.vue'),
+            'sl-sensor-detail-item': require('./SensorDetailGroupItem.vue'),
         },
         mounted(){
             console.log('Component Ready.');
@@ -47,7 +47,7 @@
         methods: {
             fetchData(){
 
-                this.$api.get('/users', {
+                this.$api.get('/sensors/' + this.sensorid + '/record', {
                     params: {
 //                        include: ''
                     }

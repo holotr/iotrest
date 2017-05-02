@@ -8,36 +8,36 @@
         <div class="row">
           <div class="col-sm-offset-3 col-sm-6">
             <div class="panel panel-default">
-              <div class="panel-heading font-bold">{{ $t('sensor.new') }}</div>
+              <div class="panel-heading font-bold">新建传感器</div>
               <div class="panel-body">
                 <form @submit.prevent="submitSensorForm" role="form">
                   <div class="form-group">
-                    <label>{{ $t('sensor.name') }}</label>
-                    <input type="text" class="form-control" v-model="sensorForm.name" :placeholder="$t('sensor.entername')" required>
+                    <label>名称</label>
+                    <input type="text" class="form-control" v-model="sensorForm.name" placeholder="请输入传感器名称" required>
                   </div>
                   <div class="form-group">
                     <label>UUID</label>
                     <input type="text" class="form-control" v-model="sensorForm.uuid" placeholder="UUID" required>
                   </div>
                   <div class="form-group">
-                    <label>{{ $t('sensor.type') }}</label>
+                    <label>脉搏传感器</label>
                     <select class="form-control m-b" v-model="sensorForm.type">
-                      <option value="脉搏传感器">{{ $t('sensor.types.pulse') }}</option>
-                      <option value="心率传感器">{{ $t('sensor.types.heartrate') }}</option>
-                      <option value="体温传感器">{{ $t('sensor.types.bodytemp') }}</option>
-                      <option value="血氧传感器">{{ $t('sensor.types.bloodo2') }}</option>
-                      <option value="倾角传感器">{{ $t('sensor.types.dip') }}</option>
+                      <option value="脉搏传感器">脉搏传感器</option>
+                      <option value="心率传感器">心率传感器</option>
+                      <option value="体温传感器">体温传感器</option>
+                      <option value="血氧传感器">血氧传感器</option>
+                      <option value="倾角传感器">倾角传感器</option>
                     </select>
                   </div>
                   <div class="form-group">
-                    <label>{{ $t('sensor.description') }}</label>
+                    <label>描述</label>
                     <textarea class="form-control" v-model="sensorForm.extra" rows="5" required></textarea>
                   </div>
-                  <button type="submit" class="btn btn-sm btn-primary">{{ $t('save') }}</button>
+                  <button type="submit" class="btn btn-sm btn-primary">保存</button>
                 </form>
               </div>
               <div class="panel-footer">
-                <span class="block text-xs">{{ $t('api.respond') }} : </span>
+                <span class="block text-xs">API 应答 : </span>
                 <pre class="block text-xs">{{ sensorForm }}</pre>
               </div>
             </div>

@@ -91,8 +91,7 @@ class RecordsController extends BaseController
      */
     public function show($id)
     {
-        $user = auth_user()->getUserId();
-        return $this->repository->findWhere(['sensor_id' => $id,'user_id'=> $user]);
+            return $this->repository->findWhere(['sensor_id' => $id]);
     }
 
     /**

@@ -16,12 +16,9 @@ mix.options({ processCssUrls: false });
 // less
 mix.less('resources/assets/less/app.less', 'public/assets/css/app.main.css')
     .less('resources/assets/less/console.less', 'public/assets/css/console.main.css')
-    .less('resources/assets/less/mobile.less', 'public/assets/css/mobile.main.css');
-
 // js
 mix.js('resources/assets/js/app.js', 'public/assets/js/app.main.js')
     .js('resources/assets/js/console.js', 'public/assets/js/console.main.js')
-    .js('resources/assets/js/mobile.js', 'public/assets/js/mobile.main.js')
     .extract([
         'jquery', 'lodash', 'moment', 'axios',
         'vue', 'vuex', 'vue-i18n', 'vue-router',
@@ -39,11 +36,7 @@ mix.combine([
     .combine([
         // console vendor styles
         'public/bower_components/toastr/toastr.css',
-    ], 'public/assets/css/console.vendor.css')
-    .combine([
-        // mobile vendor styles
-        'public/bower_components/toastr/toastr.css',
-    ], 'public/assets/css/mobile.vendor.css');
+    ], 'public/assets/css/console.vendor.css');
 
 // app scripts
 mix.combine([
@@ -53,11 +46,7 @@ mix.combine([
     .combine([
         // console vendor js
         'public/bower_components/toastr/toastr.js',
-    ], 'public/assets/js/console.vendor.js')
-    .combine([
-        // mobile vendor js
-        'public/bower_components/toastr/toastr.js',
-    ], 'public/assets/js/mobile.vendor.js');
+    ], 'public/assets/js/console.vendor.js');
 
 // theme
 mix.combine([

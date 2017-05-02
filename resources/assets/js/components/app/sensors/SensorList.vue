@@ -5,7 +5,7 @@
 
     <div class="wrapper-md">
 
-        <h1>{{ $t('sensor.sensors') }}</h1>
+        <h1>我的传感器</h1>
         <hr>
 
         <div class="row">

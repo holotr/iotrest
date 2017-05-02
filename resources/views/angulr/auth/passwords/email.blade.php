@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="wrapper text-center">
-        <strong>Reset Password</strong>
+        <strong>重置密码</strong>
     </div>
     <form name="form" class="form-horizontal form-validation" role="form" method="POST" action="{{ route('password.email') }}">
         {!! csrf_field() !!}
@@ -19,7 +19,7 @@
             </div>
         </div>
         <button type="submit" class="btn btn-lg btn-primary btn-block">
-            Send Password Reset Link
+            发送密码重置链接
         </button>
 
         <div class="wrapper"></div>
