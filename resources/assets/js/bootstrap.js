@@ -28,6 +28,10 @@ import Vuex from 'vuex'
 import VueRouter from 'vue-router'
 import VueI18n from 'vue-i18n'
 import Gravatar from 'vue-gravatar';
+import VueCharts from 'vue-chartjs'
+import { Line } from 'vue-chartjs'
+import Paginate from 'vuejs-paginate'
+
 window.Vue = Vue;
 window.Vuex = Vuex;
 window.VueRouter = VueRouter;
@@ -65,6 +69,7 @@ Vue.mixin(MixInNl2br);
 // Vue Components
 Vue.component('autosize-textarea', require('./essentials/autosize-textarea.vue'));
 Vue.component('v-gravatar', Gravatar);
+Vue.component('paginate', Paginate)
 // Bus
 const bus = new Vue({
     data: {

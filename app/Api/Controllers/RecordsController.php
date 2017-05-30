@@ -91,7 +91,11 @@ class RecordsController extends BaseController
      */
     public function show($id)
     {
-            return $this->repository->findWhere(['sensor_id' => $id]);
+        return $this->repository->scopeQuery(function($query)use($id){
+            return $query->where('sensor_id',"=",$id);
+          })->paginate(10);
+        //return $this->repository->findByField('sensor_id',$id);
+
     }
 
     /**

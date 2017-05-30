@@ -16,6 +16,19 @@
                         <sl-sensor-detail-item :item="item"></sl-sensor-detail-item>
                     </div>
                 </template>
+                <template>
+                  <div class="col-md-12 connected">
+                    <paginate v-if="meta.pagination"
+                      :page-count="meta.pagination.total_pages"
+                      :pagination="meta.pagination.current_page"
+                      :click-handler="fetchData"
+                      :prev-text="'上一页'"
+                      :next-text="'下一页'"
+                      :container-class="'pagination'"
+                      :page-class="'page-item'">
+                    </paginate>
+                  </div>
+                </template>
             </div>
 
         </div>
@@ -33,28 +46,33 @@
                 items: [],
             }
         },
+
         computed: {},
         components: {
             'sl-sensor-detail-item': require('./SensorDetailGroupItem.vue'),
         },
         mounted(){
             console.log('Component Ready.');
-
-            this.fetchData();
+            this.fetchData(1);
         },
         watch: {},
         events: {},
         methods: {
-            fetchData(){
+            fetchData(pageNum){
 
                 this.$api.get('/sensors/' + this.sensorid + '/record', {
                     params: {
-//                        include: ''
+                          //include: 'record'
+                          orderBy: 'record_id',
+                          sortedBy:'desc',
+                          page:pageNum
                     }
                 })
                     .then((response => {
                         console.log(response);
+                        console.log(pageNum);
                         this.items = response.data.data;
+                        this.meta = response.data.meta;
                     }).bind(this))
                     .catch((error => {
                         console.error(error);
